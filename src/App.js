@@ -1,10 +1,15 @@
 import { React } from 'react';
-import './App.css';
+import ToolBar from './components/ToolBar';
+import SettingsBar from './components/SettingsBar';
+import Canvas from './components/Canvas';
+import "./styles/app.scss"
 
 function App() {
   return (
-    <div className="App">
-
+    <div className="app">
+      <ToolBar />
+      <SettingsBar />
+      <Canvas />
     </div>
   );
 }
