@@ -1,6 +1,7 @@
 import React from "react";
 import Brush from "../tools/Brush";
-import Rect from '../tools/Rect';
+import Rect from "../tools/Rect";
+import Eraser from '../tools/Eraser';
 import canvasState from "../store/canvasState";
 import toolState from "../store/toolState";
 import "../styles/toolbar.scss";
@@ -17,7 +18,10 @@ const ToolBar = () => {
         onClick={() => toolState.setTool(new Rect(canvasState.canvas))}
       />
       <button className="toolbar-btn circle" />
-      <button className="toolbar-btn eraser" />
+      <button
+        className="toolbar-btn eraser"
+        onClick={() => toolState.setTool(new Eraser(canvasState.canvas))}
+      />
       <button className="toolbar-btn line" />
       <input type="color" style={{ marginLeft: 10 }} />
       <button className="toolbar-btn undo" />
