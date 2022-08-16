@@ -1,10 +1,13 @@
 import React from "react";
 import Brush from "../tools/Brush";
 import Rect from "../tools/Rect";
-import Eraser from '../tools/Eraser';
+import Circle from "../tools/Circle";
+import Eraser from "../tools/Eraser";
+import Line from '../tools/Line';
 import canvasState from "../store/canvasState";
 import toolState from "../store/toolState";
 import "../styles/toolbar.scss";
+
 
 const ToolBar = () => {
   return (
@@ -17,12 +20,18 @@ const ToolBar = () => {
         className="toolbar-btn rect"
         onClick={() => toolState.setTool(new Rect(canvasState.canvas))}
       />
-      <button className="toolbar-btn circle" />
+      <button
+        className="toolbar-btn circle"
+        onClick={() => toolState.setTool(new Circle(canvasState.canvas))}
+      />
       <button
         className="toolbar-btn eraser"
         onClick={() => toolState.setTool(new Eraser(canvasState.canvas))}
       />
-      <button className="toolbar-btn line" />
+      <button
+        className="toolbar-btn line"
+        onClick={() => toolState.setTool(new Line(canvasState.canvas))}
+      />
       <input type="color" style={{ marginLeft: 10 }} />
       <button className="toolbar-btn undo" />
       <button className="toolbar-btn redo" />

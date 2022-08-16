@@ -16,8 +16,6 @@ export default class Eraser extends Tool {
   }
   mouseDownHandler(e) {
     this.mouseDown = true;
-    this.ctx.globalCompositeOperation = 'destination-out'
-    this.ctx.fill()
     this.ctx.beginPath();
     this.ctx.moveTo(
       e.pageX - e.target.offsetLeft,
@@ -31,10 +29,8 @@ export default class Eraser extends Tool {
   }
 
   draw(x, y) {
+    this.ctx.strokeStyle = "white";
     this.ctx.lineTo(x, y);
-    this.ctx.stroke()
-    console.log("draw eraser");
+    this.ctx.stroke();
   }
 }
-
-// this.ctx.globalCompositeOperation = 'destination-out'
