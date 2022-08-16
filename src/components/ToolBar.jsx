@@ -3,13 +3,17 @@ import Brush from "../tools/Brush";
 import Rect from "../tools/Rect";
 import Circle from "../tools/Circle";
 import Eraser from "../tools/Eraser";
-import Line from '../tools/Line';
+import Line from "../tools/Line";
 import canvasState from "../store/canvasState";
 import toolState from "../store/toolState";
 import "../styles/toolbar.scss";
 
-
 const ToolBar = () => {
+  const changeColor = (e) => {
+    toolState.setStrokeColor(e.target.value);
+    toolState.setFillColor(e.target.value);
+  };
+
   return (
     <div className="toolbar">
       <button
@@ -32,7 +36,13 @@ const ToolBar = () => {
         className="toolbar-btn line"
         onClick={() => toolState.setTool(new Line(canvasState.canvas))}
       />
-      <input type="color" style={{ marginLeft: 10 }} />
+      <input
+        onChange={(e) => {
+          changeColor(e);
+        }}
+        style={{ marginLeft: 10 }}
+        type="color"
+      />
       <button className="toolbar-btn undo" />
       <button className="toolbar-btn redo" />
       <button className="toolbar-btn save" />
