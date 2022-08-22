@@ -18,7 +18,7 @@ app.ws("/", (ws, req) => {
   });
 });
 
-app.listen(PORT, () => console.log("server started on PORT ${PORT}"));
+app.listen(PORT, () => console.log(`server started on PORT ${PORT}`));
 
 const connectionHandler = (ws, msg) => {
   ws.id = msg.id;
@@ -28,7 +28,7 @@ const connectionHandler = (ws, msg) => {
 const broadcastConnection = (ws, msg) => {
   aWss.clients.forEach((client) => {
     if (client.id === msg.id) {
-      client.send("Users ${msg.userName} is connection");
+      client.send(`Users ${msg.userName} is connection`);
     }
   });
 };
