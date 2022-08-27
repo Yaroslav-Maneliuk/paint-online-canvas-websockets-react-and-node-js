@@ -24,11 +24,12 @@ export default class Brush extends Tool {
   }
   mouseMoveHandler(e) {
     if (this.mouseDown) {
-      this.draw(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop);
+      this.draw(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop, this.ctx.strokeColor);
     }
   }
 
-  draw(x, y) {
+  draw(x, y, color) {
+    this.ctx.strokeStyle = color;
     this.ctx.lineTo(x, y);
     this.ctx.stroke();
   }
